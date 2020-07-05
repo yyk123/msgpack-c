@@ -25,10 +25,12 @@
 #if defined(unix) || defined(__unix) || defined(__APPLE__) || defined(__OpenBSD__)
 #include <sys/uio.h>
 #else
-struct iovec {
-    void  *iov_base;
-    size_t iov_len;
-};
+namespace msgpack {
+    struct iovec {
+        void* iov_base;
+        size_t iov_len;
+    };
+}
 #endif
 
 namespace msgpack {
